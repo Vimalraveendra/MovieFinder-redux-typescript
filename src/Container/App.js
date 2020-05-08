@@ -31,11 +31,12 @@ const App = () => {
     }
   };
 
+  console.log("error", error);
   return (
     <div className={styles.App}>
       <h1>Movie finder</h1>
       <SearchBox searchChange={searchChange} handleSubmit={onHandleSubmit} />
-      <MovieList movies={movies} />
+      <MovieList movies={movies} error={error} />
     </div>
   );
 };
