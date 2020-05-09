@@ -1,16 +1,17 @@
 import React from "react";
 import styles from "./MovieCard.module.css";
-const MovieCard = ({ title, poster, year }) => {
+const MovieCard = ({ title, poster, year, error }) => {
+  console.log("error", error);
   return title ? (
     <div className={styles.moviecard}>
       <img src={poster} alt="movie-poster" height="350" />
       <div>
         <h2>{title}</h2>
-        <p>{year}</p>
+        <p>Year:{year}</p>
       </div>
     </div>
   ) : (
-    <p>{"Sorry!!!, Please enter a film name"}</p>
+    <p>{error}</p>
   );
 };
 

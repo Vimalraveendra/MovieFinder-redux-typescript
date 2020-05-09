@@ -35,7 +35,6 @@ const App = () => {
     }
   };
 
-  console.log("error", error);
   return (
     <div className={styles.App}>
       <h1>Movie finder</h1>
