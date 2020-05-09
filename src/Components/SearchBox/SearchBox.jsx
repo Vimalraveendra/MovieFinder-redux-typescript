@@ -14,19 +14,22 @@ const SearchBox = ({
         type="search"
         placeholder="search movies here"
         onChange={searchChange}
+        value={searchField}
       />
 
       <button className={styles.button} onClick={handleSubmit}>
         Search
       </button>
-      <span
-        className={styles.icon}
-        role="img"
-        aria-label="sheep"
-        onClick={clearMovies}
-      >
-        &#10060;
-      </span>
+      {searchField.length > 0 ? (
+        <span
+          className={styles.icon}
+          role="img"
+          aria-label="sheep"
+          onClick={clearMovies}
+        >
+          &#10060;
+        </span>
+      ) : null}
     </div>
   );
 };

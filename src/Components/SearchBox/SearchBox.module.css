@@ -16,7 +16,7 @@
   border: none;
   text-transform: capitalize;
   padding-left: 3.5rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 .input:focus {
   outline: none;
@@ -42,7 +42,6 @@ to me but you can change the dimensions of course. */
 .icon {
   position: absolute;
   left: 0.2rem;
-  top: 0.5rem;
-
-  font-size: 1.8rem;
+  top: 0.6rem;
+  font-size: 1.5rem;
 }
