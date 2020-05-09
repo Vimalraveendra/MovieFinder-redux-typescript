@@ -1,18 +1,48 @@
+.container {
+  /* causes absolute icon span to be positioned correctly */
+  display: inline-block;
+  position: relative;
+  width: 20rem;
+  height: 3.1rem;
+  box-sizing: border-box;
+}
+
 .input {
-  background: #bdbdbdfa;
-  padding: 14px 40px;
+  /* background: #bdbdbdfa; */
+  width: 100%;
+  height: 100%;
+
   border-radius: 5px;
   border: none;
   text-transform: capitalize;
+  padding-left: 3.5rem;
+  font-size: 1rem;
 }
 .input:focus {
   outline: none;
 }
 
 .button {
-  background: rgba(0, 255, 0, 0.7);
+  /* These are set relative to the height of the input 
+box to bound the box neatly inside. This is aesthetic 
+to me but you can change the dimensions of course. */
+
+  position: absolute;
+  right: 0.2rem;
+  top: 0.15rem;
+  width: 4.6rem;
+  height: 2.8rem;
+  border-radius: 3px;
+  background-color: rgba(0, 255, 0, 0.7);
+  font-size: 1rem;
   outline: none;
-  padding: 13px 15px;
-  border-radius: 5px;
-  margin-left: 2px;
+  box-sizing: border-box;
+}
+
+.icon {
+  position: absolute;
+  left: 0.2rem;
+  top: 0.5rem;
+
+  font-size: 1.8rem;
 }

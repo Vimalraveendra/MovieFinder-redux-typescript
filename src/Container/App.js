@@ -14,6 +14,10 @@ const App = () => {
     setSearchField(e.target.value);
   };
 
+  const clearMovies = () => {
+    setMovies([]);
+    setSearchField("");
+  };
   const onHandleSubmit = async () => {
     if (searchField.length > 0) {
       try {
@@ -35,7 +39,12 @@ const App = () => {
   return (
     <div className={styles.App}>
       <h1>Movie finder</h1>
-      <SearchBox searchChange={searchChange} handleSubmit={onHandleSubmit} />
+      <SearchBox
+        searchChange={searchChange}
+        handleSubmit={onHandleSubmit}
+        clearMovies={clearMovies}
+        searchField={searchField}
+      />
       <MovieList movies={movies} error={error} />
     </div>
   );
