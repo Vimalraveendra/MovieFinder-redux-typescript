@@ -7,12 +7,16 @@ const MovieList = ({ movies, error }) => {
   console.log("movies", movies);
   return (
     <div className={styles.movielist}>
-      {movies &&
+      {error && movies.length === 0 ? (
+        <MovieCard error={error} />
+      ) : (
+        movies &&
         movies.map(({ imdbID, Title, Poster, Year }) => {
           return (
             <MovieCard key={imdbID} title={Title} poster={Poster} year={Year} />
           );
-        })}
+        })
+      )}
     </div>
   );
 };

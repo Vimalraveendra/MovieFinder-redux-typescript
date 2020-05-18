@@ -11,7 +11,9 @@ const MovieCard = ({ title, poster, year, error }) => {
       </div>
     </div>
   ) : (
-    <p>{error}</p>
+    <div>
+      <p>{error}</p>
+    </div>
   );
 };
 

@@ -30,7 +30,7 @@ class App extends React.Component {
         );
         this.setState({ movies: Search });
       } catch (error) {
-        this.setState({ error: "Sorry!!!, Please enter a film name" });
+        console.log("errors", error);
       }
     } else {
       this.setState({ error: "Sorry!!!, Please enter a film name" });
@@ -38,7 +38,7 @@ class App extends React.Component {
   };
 
   render() {
-    console.log("app", this.state.error);
+    console.log("appError", this.state.error);
     const { searchField, movies, error } = this.state;
     return (
       <div className={styles.App}>
