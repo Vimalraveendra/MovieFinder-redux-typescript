@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./MovieCard.module.css";
 const MovieCard = ({ title, poster, year, error }) => {
-  console.log("errorMovie", error);
   return title ? (
     <div className={styles.moviecard}>
       <img src={poster} alt="movie-poster" height="350" />
@@ -11,7 +10,7 @@ const MovieCard = ({ title, poster, year, error }) => {
       </div>
     </div>
   ) : (
-    <div>
+    <div className={styles.error}>
       <p>{error}</p>
     </div>
   );

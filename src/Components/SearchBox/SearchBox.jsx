@@ -6,6 +6,7 @@ const SearchBox = ({
   handleSubmit,
   clearMovies,
   searchField,
+  error,
 }) => {
   return (
     <div className={styles.container}>
@@ -20,7 +21,7 @@ const SearchBox = ({
       <button className={styles.button} onClick={handleSubmit}>
         Search
       </button>
-      {searchField.length > 0 ? (
+      {searchField.length > 0 || error ? (
         <span
           className={styles.icon}
           role="img"

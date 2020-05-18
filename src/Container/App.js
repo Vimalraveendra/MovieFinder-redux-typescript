@@ -17,8 +17,9 @@ class App extends React.Component {
   };
 
   clearMovies = () => {
-    this.setState({ movies: [], searchField: "" });
+    this.setState({ movies: [], searchField: "", error: "" });
   };
+
   onHandleSubmit = async () => {
     const { searchField } = this.state;
     if (searchField.length > 0) {
@@ -48,6 +49,7 @@ class App extends React.Component {
           handleSubmit={this.onHandleSubmit}
           clearMovies={this.clearMovies}
           searchField={searchField}
+          error={error}
         />
         <MovieList movies={movies} error={error} />
       </div>
