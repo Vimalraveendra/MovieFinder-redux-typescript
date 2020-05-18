@@ -1,24 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./App.module.css";
 import SearchBox from "../Components/SearchBox/SearchBox";
 import MovieList from "../Components/MovieList/MovieList";
 import axios from "axios";
 
-const App = () => {
-  const API_KEY = process.env.REACT_APP_API_KEY;
-  const [searchField, setSearchField] = useState("");
-  const [movies, setMovies] = useState([]);
-  const [error, setError] = useState("");
-
-  const searchChange = (e) => {
-    setSearchField(e.target.value);
+const API_KEY = process.env.REACT_APP_API_KEY;
+class App extends React.Component {
+  state = {
+    searchField: "",
+    movies: [],
+    error: "",
   };
 
-  const clearMovies = () => {
-    setMovies([]);
-    setSearchField("");
+  searchChange = (e) => {
+    this.setState({ searchField: e.target.value });
   };
-  const onHandleSubmit = async () => {
+
+  clearMovies = () => {
+    this.setState({ movies: [], searchField: "" });
+  };
+  onHandleSubmit = async () => {
+    const { searchField } = this.state;
     if (searchField.length > 0) {
       try {
         const {
@@ -26,27 +28,31 @@ const App = () => {
         } = await axios.get(
           `http://www.omdbapi.com/?s=${searchField}&apikey=${API_KEY}`
         );
-        setMovies(Search);
+        this.setState({ movies: Search });
       } catch (error) {
-        console.log("error", error);
+        this.setState({ error: "Sorry!!!, Please enter a film name" });
       }
     } else {
-      setError("Sorry!!!, Please enter a film name");
+      this.setState({ error: "Sorry!!!, Please enter a film name" });
     }
   };
 
-  return (
-    <div className={styles.App}>
-      <h1>Movie finder</h1>
-      <SearchBox
-        searchChange={searchChange}
-        handleSubmit={onHandleSubmit}
-        clearMovies={clearMovies}
-        searchField={searchField}
-      />
-      <MovieList movies={movies} error={error} />
-    </div>
-  );
-};
+  render() {
+    console.log("app", this.state.error);
+    const { searchField, movies, error } = this.state;
+    return (
+      <div className={styles.App}>
+        <h1>Movie finder</h1>
+        <SearchBox
+          searchChange={this.searchChange}
+          handleSubmit={this.onHandleSubmit}
+          clearMovies={this.clearMovies}
+          searchField={searchField}
+        />
+        <MovieList movies={movies} error={error} />
+      </div>
+    );
+  }
+}
 
 export default App;
