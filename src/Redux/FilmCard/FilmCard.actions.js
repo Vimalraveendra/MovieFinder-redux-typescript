@@ -10,8 +10,8 @@ export const fetchFilmDataSuccess = (data) => ({
   payload: data,
 });
 
-export const fetchFilmDataFailed = (error) => ({
-  type: FilmCardActionTypes.REQUEST_FILM_DATA_FAILED,
+export const fetchFilmDataFailure = (error) => ({
+  type: FilmCardActionTypes.REQUEST_FILM_DATA_FAILURE,
   payload: error,
 });
 
@@ -21,7 +21,7 @@ export const fetchedFilmData =async (searchField)=>dispatch=>{
         const response= await fetchFilmData(searchField)
         dispatch(fetchFilmDataSuccess(response))
     }catch(error){
-        dispatch(fetchFilmDataFailed(error))
+        dispatch(fetchFilmDataFailure(error))
     }
 
     
