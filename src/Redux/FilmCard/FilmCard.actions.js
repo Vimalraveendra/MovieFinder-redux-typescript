@@ -1,6 +1,11 @@
 import FilmCardActionTypes from "./FilmCard.types";
 import {fetchFilmData} from "../../API/API" 
 
+
+export const fetchFilmDataStart = () => ({
+  type: FilmCardActionTypes.CLEAR_FILM_DATA,
+});
+
 export const fetchFilmDataStart = () => ({
   type: FilmCardActionTypes.REQUEST_FILM_DATA_START,
 });
