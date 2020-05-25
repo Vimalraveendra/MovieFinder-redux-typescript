@@ -1,5 +1,11 @@
 import React from "react";
 import styles from "./SearchBox.module.css";
+import { connect } from "react-redux";
+import { searchChange } from "../../Redux/SearchBox/SearchBox.actions";
+import {
+  fetchedFilmData,
+  clearMovies,
+} from "../../Redux/FilmCard/FilmCard.actions";
 
 const SearchBox = ({
   searchChange,
@@ -35,4 +41,18 @@ const SearchBox = ({
   );
 };
 
-export default SearchBox;
+const mapStateToProps = ({
+  moviesList: { error },
+  searchText: { searchField },
+}) => ({
+  searchField,
+  error,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  searchChange: (e) => dispatch(searchChange(e.target.value)),
+  clearMovies: () => dispatch(clearMovies()),
+  handleSubmit: (searchField) => dispatch(fetchedFilmData(searchField)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBox);

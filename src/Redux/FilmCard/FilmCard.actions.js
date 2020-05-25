@@ -1,8 +1,7 @@
 import FilmCardActionTypes from "./FilmCard.types";
-import {fetchFilmData} from "../../API/API" 
+import { fetchFilmData } from "../../API/API";
 
-
-export const clearFilmData = () => ({
+export const clearMovies = () => ({
   type: FilmCardActionTypes.CLEAR_FILM_DATA,
 });
 
@@ -20,14 +19,13 @@ export const fetchFilmDataFailure = (error) => ({
   payload: error,
 });
 
-export const fetchedFilmData =async (searchField)=>dispatch=>{
-    dispatch(fetchFilmDataStart())
-    try{
-        const response= await fetchFilmData(searchField)
-        dispatch(fetchFilmDataSuccess(response))
-    }catch(error){
-        dispatch(fetchFilmDataFailure(error))
-    }
-
-    
-}
+export const fetchedFilmData = async (searchField) => (dispatch) => {
+  console.log("serchfield", searchField);
+  dispatch(fetchFilmDataStart());
+  try {
+    const response = fetchFilmData(searchField);
+    dispatch(fetchFilmDataSuccess(response));
+  } catch (error) {
+    dispatch(fetchFilmDataFailure(error));
+  }
+};
