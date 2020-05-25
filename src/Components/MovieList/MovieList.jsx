@@ -1,6 +1,7 @@
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import styles from "./MovieList.module.css";
+import { connect } from "react-redux";
 
 const MovieList = ({ movies, error }) => {
   console.log("movielist", error);
@@ -19,4 +20,8 @@ const MovieList = ({ movies, error }) => {
   );
 };
 
-export default MovieList;
+const mapStateToProps = ({ moviesList: { movies, error } }) => ({
+  movies,
+  error,
+});
+export default connect(mapStateToProps)(MovieList);
