@@ -2,7 +2,7 @@ import FilmCardActionTypes from "./FilmCard.types";
 import {fetchFilmData} from "../../API/API" 
 
 
-export const fetchFilmDataStart = () => ({
+export const clearFilmData = () => ({
   type: FilmCardActionTypes.CLEAR_FILM_DATA,
 });
 

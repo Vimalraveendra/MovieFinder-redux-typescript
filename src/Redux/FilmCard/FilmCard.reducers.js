@@ -27,6 +27,12 @@ export const FilmCardReducer = (state = initialState, action = {}) => {
         isPending: false,
         error: action.payload,
       };
+
+    case FilmCardActionTypes.CLEAR_FILM_DATA:
+      return {
+        ...state,
+        movies: [],
+      };
     default:
       return state;
   }
