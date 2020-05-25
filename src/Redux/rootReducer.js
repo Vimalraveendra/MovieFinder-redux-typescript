@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { FilmCardReducer } from "./FilmCard/FilmCard.reducers";
-import { SearchBoxReducer } from "./SearchBox/SearchBox.reducers";
+import { searchChangeReducer } from "./SearchBox/SearchBox.reducers";
 
 const rootReducer = combineReducers({
   moviesList: FilmCardReducer,
-  searchText: SearchBoxReducer,
+  searchText: searchChangeReducer,
 });
 
 export default rootReducer;
