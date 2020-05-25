@@ -19,11 +19,11 @@ export const fetchFilmDataFailure = (error) => ({
   payload: error,
 });
 
-export const fetchedFilmData = async (searchField) => (dispatch) => {
+export const fetchedFilmData = (searchField) => async (dispatch) => {
   console.log("serchfield", searchField);
   dispatch(fetchFilmDataStart());
   try {
-    const response = fetchFilmData(searchField);
+    const response = await fetchFilmData(searchField);
     dispatch(fetchFilmDataSuccess(response));
   } catch (error) {
     dispatch(fetchFilmDataFailure(error));

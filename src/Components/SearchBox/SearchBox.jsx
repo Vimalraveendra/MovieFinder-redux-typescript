@@ -24,7 +24,10 @@ const SearchBox = ({
         value={searchField}
       />
 
-      <button className={styles.button} onClick={handleSubmit}>
+      <button
+        className={styles.button}
+        onClick={(searchField) => handleSubmit(searchField)}
+      >
         Search
       </button>
       {searchField.length > 0 || error ? (
