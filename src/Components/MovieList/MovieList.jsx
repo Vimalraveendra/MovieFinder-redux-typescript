@@ -4,8 +4,6 @@ import styles from "./MovieList.module.css";
 import { connect } from "react-redux";
 
 const MovieList = ({ movies, error }) => {
-  console.log("movielist", error);
-  console.log("movies", movies);
   return error && movies.length === 0 ? (
     <MovieCard error={error} />
   ) : (
