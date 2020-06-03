@@ -20,6 +20,8 @@ export const fetchFilmDataFailure = (error) => ({
 });
 
 export const fetchedFilmData = (searchField) => async (dispatch) => {
+  console.log("length", searchField.length);
+
   dispatch(fetchFilmDataStart());
 
   try {
@@ -27,9 +29,9 @@ export const fetchedFilmData = (searchField) => async (dispatch) => {
       const response = await fetchFilmData(searchField);
       dispatch(fetchFilmDataSuccess(response));
     } else {
-      console.log("Sorry!!!, Please enter a film name");
+      throw Error("Sorry!!!, Please enter a film name");
     }
   } catch (error) {
-    dispatch(fetchFilmDataFailure(error));
+    dispatch(fetchFilmDataFailure(error.message));
   }
 };

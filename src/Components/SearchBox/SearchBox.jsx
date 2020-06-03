@@ -26,7 +26,7 @@ const SearchBox = ({
 
       <button
         className={styles.button}
-        onClick={(searchField) => handleSubmit(searchField)}
+        onClick={() => handleSubmit(searchField)}
       >
         Search
       </button>
