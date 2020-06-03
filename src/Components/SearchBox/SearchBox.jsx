@@ -18,7 +18,6 @@ const SearchBox = ({
   error,
   clearSearchField,
 }) => {
-  console.log("search", searchField);
   return (
     <div className={styles.container}>
       <input
