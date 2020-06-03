@@ -11,6 +11,7 @@ export const searchChangeReducer = (state = initialState, action = {}) => {
         ...state,
         searchField: action.payload,
       };
+
     default:
       return state;
   }

@@ -33,6 +33,7 @@ export const FilmCardReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         movies: [],
+        error: "",
       };
     default:
       return state;
