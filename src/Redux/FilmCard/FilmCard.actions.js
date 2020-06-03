@@ -20,8 +20,6 @@ export const fetchFilmDataFailure = (error) => ({
 });
 
 export const fetchedFilmData = (searchField) => async (dispatch) => {
-  console.log("length", searchField.length);
-
   dispatch(fetchFilmDataStart());
 
   try {

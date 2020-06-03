@@ -3,9 +3,10 @@ import MovieCard from "../MovieCard/MovieCard";
 import styles from "./MovieList.module.css";
 import { connect } from "react-redux";
 
-const MovieList = ({ movies, error }) => {
+const MovieList = ({ movies, error, searchField }) => {
+  console.log("searchdie", searchField);
   console.log("movies", movies);
-  return error && movies.length === 0 ? (
+  return (error && movies.length) === 0 ? (
     <MovieCard error={error} />
   ) : (
     <div className={styles.movielist}>
@@ -19,8 +20,12 @@ const MovieList = ({ movies, error }) => {
   );
 };
 
-const mapStateToProps = ({ moviesList: { movies, error } }) => ({
+const mapStateToProps = ({
+  moviesList: { movies, error },
+  searchText: { searchField },
+}) => ({
   movies,
   error,
+  searchField,
 });
 export default connect(mapStateToProps)(MovieList);

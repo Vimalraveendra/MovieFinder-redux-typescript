@@ -14,7 +14,7 @@ export const searchChangeReducer = (state = initialState, action = {}) => {
     case SearchBoxActionTypes.CLEAR_SEARCH_FIELD:
       return {
         ...state,
-        searchField: action.payload,
+        searchField: "",
       };
     default:
       return state;

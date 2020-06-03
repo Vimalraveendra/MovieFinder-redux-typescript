@@ -7,7 +7,6 @@ const initialState = {
 };
 
 export const FilmCardReducer = (state = initialState, action = {}) => {
-  console.log(action.payload);
   switch (action.type) {
     case FilmCardActionTypes.REQUEST_FILM_DATA_START:
       return {
