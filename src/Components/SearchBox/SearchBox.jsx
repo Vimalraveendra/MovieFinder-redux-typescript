@@ -10,6 +10,10 @@ import {
   clearMovies,
 } from "../../Redux/FilmCard/FilmCard.actions";
 
+import { createStructuredSelector } from "reselect";
+import { selectError } from "../../Redux/FilmCard/FilmCard.selectors";
+import { selectSearchField } from "../../Redux/SearchBox/SearchBox.selectors";
+
 const SearchBox = ({
   searchChange,
   handleSubmit,
@@ -51,12 +55,9 @@ const SearchBox = ({
   );
 };
 
-const mapStateToProps = ({
-  moviesList: { error },
-  searchText: { searchField },
-}) => ({
-  searchField,
-  error,
+const mapStateToProps = createStructuredSelector({
+  searchField: selectSearchField,
+  error: selectError,
 });
 
 const mapDispatchToProps = (dispatch) => ({
