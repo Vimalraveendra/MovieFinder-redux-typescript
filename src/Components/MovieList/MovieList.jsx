@@ -10,9 +10,9 @@ const MovieList = ({ movies, error, searchField }) => {
     <div className={styles.movielist}>
       {movies &&
         movies.map(({ imdbID, Title, Poster, Year }) => {
-          return (
+          return Poster !== "N/A" ? (
             <MovieCard key={imdbID} title={Title} poster={Poster} year={Year} />
-          );
+          ) : null;
         })}
     </div>
   );
