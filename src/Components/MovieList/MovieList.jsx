@@ -3,6 +3,13 @@ import MovieCard from "../MovieCard/MovieCard";
 import styles from "./MovieList.module.css";
 import { connect } from "react-redux";
 
+import { createStructuredSelector } from "reselect";
+import {
+  selectMovies,
+  selectError,
+} from "../../Redux/FilmCard/FilmCard.selectors";
+import { selectSearchField } from "../../Redux/SearchBox/SearchBox.selectors";
+
 const MovieList = ({ movies, error, searchField }) => {
   return error || searchField.length === 0 ? (
     <MovieCard error={error} />
@@ -18,12 +25,9 @@ const MovieList = ({ movies, error, searchField }) => {
   );
 };
 
-const mapStateToProps = ({
-  moviesList: { movies, error },
-  searchText: { searchField },
-}) => ({
-  movies,
-  error,
-  searchField,
+const mapStateToProps = createStructuredSelector({
+  movies: selectMovies,
+  error: selectError,
+  searchField: selectSearchField,
 });
 export default connect(mapStateToProps)(MovieList);
