@@ -6,7 +6,7 @@ import {
   clearSearchField,
 } from "../../Redux/SearchBox/SearchBox.actions";
 import {
-  fetchedFilmData,
+  fetchFilmDataStart,
   clearMovies,
 } from "../../Redux/FilmCard/FilmCard.actions";
 
@@ -63,7 +63,7 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   searchChange: (e) => dispatch(searchChange(e.target.value)),
   clearMovies: () => dispatch(clearMovies()),
-  handleSubmit: (searchField) => dispatch(fetchedFilmData(searchField)),
+  handleSubmit: (searchField) => dispatch(fetchFilmDataStart(searchField)),
   // when the user click on the close icon we need to make the
   // input text empty
   clearSearchField: () => dispatch(clearSearchField()),
