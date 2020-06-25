@@ -5,6 +5,8 @@ import MovieList from "../Components/MovieList/MovieList";
 
 interface IAppProps {}
 interface IAppState {}
+//  here we are mentioning the type of the props and state
+// of a class component
 class App extends React.Component<IAppProps, IAppState> {
   render() {
     return (
