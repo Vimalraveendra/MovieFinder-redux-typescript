@@ -22,14 +22,17 @@ export const CLEAR_FILM_DATA = "CLEAR_FILM_DATA";
 
 export interface fetchFilmDataStartAction {
   type: typeof REQUEST_FILM_DATA_START;
+  payload: string;
 }
 
 export interface fetchFilmDataSuccessAction {
   type: typeof REQUEST_FILM_DATA_SUCCESS;
+  payload: Array<IMovies>;
 }
 
 export interface fetchFilmDataFailureAction {
   type: typeof REQUEST_FILM_DATA_FAILURE;
+  payload: string;
 }
 
 export interface clearFilmDataAction {
