@@ -14,7 +14,7 @@ const initialState: IMoviesList = {
   isPending: false,
   error: "",
 };
-// now here we are going to specify the types of the parameters &
+// now here we are going to specify the types of the action parameters &
 // types of the return type
 export const FilmCardReducer = (
   state = initialState,
