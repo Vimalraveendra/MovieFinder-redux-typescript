@@ -1,6 +1,14 @@
 import React from "react";
 import styles from "./MovieCard.module.css";
-const MovieCard = ({ title, poster, year, error }) => {
+
+interface IList {
+  title: string;
+  poster: string;
+  year: string;
+  error: string;
+}
+// here we are going to specify the type of the parameters
+const MovieCard: React.FC<IList> = ({ title, poster, year, error }) => {
   return title ? (
     <div className={styles.moviecard}>
       <img src={poster} alt="movie-poster" width="250" height="350" />
