@@ -1,12 +1,14 @@
 import React from "react";
 import styles from "./MovieCard.module.css";
+import { IMovies } from "../../Redux/FilmCard/FilmCard.types";
 
 interface IList {
   title: string;
   poster: string;
-  year: string;
+  year: number;
   error: string;
 }
+
 // here we are going to specify the type of the parameters
 const MovieCard: React.FC<IList> = ({ title, poster, year, error }) => {
   return title ? (
