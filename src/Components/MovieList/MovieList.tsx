@@ -9,6 +9,10 @@ import {
   selectError,
 } from "../../Redux/FilmCard/FilmCard.selectors";
 import { selectSearchField } from "../../Redux/SearchBox/SearchBox.selectors";
+import { IMoviesList } from "../../Redux/FilmCard/FilmCard.types";
+import { ISearchBox } from "../../Redux/SearchBox/SearchBox.types";
+
+type propsList = IMoviesList & ISearchBox;
 
 const MovieList = ({ movies, error, searchField }) => {
   return error || searchField.length === 0 ? (
