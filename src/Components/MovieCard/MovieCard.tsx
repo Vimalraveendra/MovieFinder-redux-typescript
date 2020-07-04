@@ -1,24 +1,22 @@
 import React from "react";
 import styles from "./MovieCard.module.css";
 
-export interface IList {
-  title: string;
-  poster: string;
-  year: number;
-}
 export interface IProps {
-  error: string;
+  Title?: string;
+  Poster?: string;
+  Year?: string;
+  error?: string | undefined;
 }
 
-type IMoviesProps = IList & IProps;
 // here we are going to specify the type of the parameters
-const MovieCard: React.FC<IMoviesProps> = ({ title, poster, year, error }) => {
-  return title ? (
+const MovieCard: React.FC<IProps> = ({ Title, Poster, Year, error }) => {
+  console.log("error", error);
+  return Title ? (
     <div className={styles.moviecard}>
-      <img src={poster} alt="movie-poster" width="250" height="350" />
+      <img src={Poster} alt="movie-poster" width="250" height="350" />
       <div>
-        <h2>{title}</h2>
-        <p>Year:{year}</p>
+        <h2>{Title}</h2>
+        <p>Year:{Year}</p>
       </div>
     </div>
   ) : (
