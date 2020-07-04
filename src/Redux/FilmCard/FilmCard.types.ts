@@ -1,10 +1,10 @@
 // Describing the shape of the movies  slice of state
 
 export interface IMovies {
-  imdbID: number;
+  [imdbID: string]: string;
   Title: string;
   Poster: string;
-  Year: number;
+  Year: string;
 }
 
 export interface IMoviesList {

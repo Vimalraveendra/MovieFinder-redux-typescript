@@ -9,10 +9,9 @@ import {
   selectError,
 } from "../../Redux/FilmCard/FilmCard.selectors";
 import { selectSearchField } from "../../Redux/SearchBox/SearchBox.selectors";
-import { IMoviesList, IMovies } from "../../Redux/FilmCard/FilmCard.types";
-import { ISearchBox } from "../../Redux/SearchBox/SearchBox.types";
+import { IMovies } from "../../Redux/FilmCard/FilmCard.types";
+
 import { AppState } from "../../Redux/store";
-import { IList } from "../MovieCard/MovieCard";
 
 interface IMoviesListProps {}
 //here we are doing aggregation of all the props  types.
@@ -26,7 +25,7 @@ const MovieList = ({ movies, error, searchField }: propsList) => {
       {movies &&
         movies.map(({ imdbID, Title, Poster, Year }) => {
           return Poster !== "N/A" ? (
-            <MovieCard key={imdbID} title={Title} poster={Poster} year={Year} />
+            <MovieCard key={imdbID} Title={Title} Poster={Poster} Year={Year} />
           ) : null;
         })}
     </div>
@@ -36,8 +35,8 @@ const MovieList = ({ movies, error, searchField }: propsList) => {
 // here we need to specify the return type of  mapStateToProps.
 
 interface LinkStateProps {
-  movies: Array<IList>;
-  error: string;
+  movies: Array<IMovies>;
+  error?: string | undefined;
   searchField: string;
 }
 
