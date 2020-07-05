@@ -10,7 +10,6 @@ export interface IProps {
 
 // here we are going to specify the type of the parameters
 const MovieCard: React.FC<IProps> = ({ Title, Poster, Year, error }) => {
-  console.log("error", error);
   return Title ? (
     <div className={styles.moviecard}>
       <img src={Poster} alt="movie-poster" width="250" height="350" />
