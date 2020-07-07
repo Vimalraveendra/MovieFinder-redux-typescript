@@ -14,7 +14,7 @@ import { IMovies } from "../../Redux/FilmCard/FilmCard.types";
 import { AppState } from "../../Redux/store";
 
 interface IMoviesListProps {}
-//here we are doing aggregation of all the props  types.
+//here we are doing aggregation of all the props types.
 type propsList = IMoviesListProps & LinkStateProps;
 
 const MovieList = ({ movies, error, searchField }: propsList) => {
