@@ -101,7 +101,7 @@ const mapDispatchToProps = (
   // using the interface LinkMapProps
   dispatch: Dispatch<AppDispatchActions>
 ): LinkMapProps => ({
-  searchChange: (e) => dispatch(searchChange(e)),
+  searchChange: (event) => dispatch(searchChange(event.target.value)),
   clearMovies: () => dispatch(clearMovies()),
   handleSubmit: (searchField) => dispatch(fetchFilmDataStart(searchField)),
   // when the user click on the close icon we need to make the

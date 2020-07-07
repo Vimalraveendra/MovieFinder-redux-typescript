@@ -9,7 +9,7 @@ export const CLEAR_SEARCH_FIELD = "CLEAR_SEARCH_FIELD";
 // so we are exporting each actions in typescript format
 export interface handleSearchChange {
   type: typeof HANDLE_SEARCH_CHANGE;
-  payload: React.ChangeEvent<HTMLInputElement>;
+  payload: string;
 }
 
 export interface clearSearchField {

@@ -24,7 +24,7 @@ export const searchChangeReducer = (
     case HANDLE_SEARCH_CHANGE:
       return {
         ...state,
-        searchField: action.payload.target.value,
+        searchField: action.payload,
       };
     case CLEAR_SEARCH_FIELD:
       return {

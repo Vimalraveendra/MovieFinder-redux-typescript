@@ -10,11 +10,9 @@ import {
 //(in our case it is the searcnBoxActionTypes ie SEARCHFIELD_CHANGE)
 // so here searchBoxActionTypes  specify  all the possible actions
 // that redux store can take place
-export const searchChange = (
-  film: React.ChangeEvent<HTMLInputElement>
-): SearchBoxActionTypes => ({
+export const searchChange = (payload: string): SearchBoxActionTypes => ({
   type: HANDLE_SEARCH_CHANGE,
-  payload: film,
+  payload,
 });
 
 export const clearSearchField = (): SearchBoxActionTypes => ({
