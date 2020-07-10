@@ -8,9 +8,6 @@ import * as actions from "./FilmCard.sagas";
 import { runSaga } from "redux-saga";
 
 describe("Requesting Movies", () => {
-  afterAll(() => {
-    mockFn.mockReset();
-  });
   it("should dispatch action with fetchFilmDataSuccess", async () => {
     //   dispatched actions
     // we push all dispatched actions to make assertions easier
@@ -55,7 +52,6 @@ describe("Requesting Movies", () => {
     await runSaga(fakeStore, actions.fetchFilmDataAsync, {
       payload: "hello",
     }).done;
-
     expect.assertions(2);
     expect(API.fetchFilmData.mock.calls.length).toBe(1);
     expect(dispatchedActions).toEqual(expectedResult);
@@ -68,7 +64,12 @@ describe("Requesting Movies", () => {
     const dispatchedActions = [];
 
     //  mock error
-    const error = "Something went wrong!!!";
+    const error = "something went wrong!!!";
+
+    const expectedOutput = [
+      { payload: "something went wrong!!!", type: "REQUEST_FILM_DATA_FAILURE" },
+    ];
+
     // we simulate an error by rejecting the promise
     // then we assert if our saga dispatched the action(s) correctly
 
@@ -80,9 +81,11 @@ describe("Requesting Movies", () => {
       dispatch: (action) => dispatchedActions.push(action),
     };
     await runSaga(fakeStore, actions.fetchFilmDataAsync, {
-      payload: { error: "Something went wrong!!!" },
+      payload: "hello",
     }).done;
-    expect.assertions(1);
-    expect(API.fetchFilmData.mock.calls.length).toBe(0);
+
+    expect.assertions(2);
+    expect(API.fetchFilmData.mock.calls.length).toBe(1);
+    expect(dispatchedActions).toEqual(expectedOutput);
   });
 });
