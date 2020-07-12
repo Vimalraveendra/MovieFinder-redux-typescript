@@ -1,50 +1,77 @@
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
 import React from "react";
 import SearchBox from "./SearchBox";
-import { Provider } from "react-redux";
 
-// import store from "../../Redux/store";
-import configureStore from "redux-mock-store";
-import { searchChange } from "../../Redux/SearchBox/SearchBox.actions";
-const mockStore = configureStore();
+// import { Provider } from "react-redux";
 
-describe("searchBox", () => {
-  let wrapper, store;
+// // import store from "../../Redux/store";
+// import configureStore from "redux-mock-store";
+
+// const mockStore = configureStore();
+
+describe("SearchBox component", () => {
+  let wrapper, mockProps;
+  // beforeEach makes sure that its run before each one of the test
   beforeEach(() => {
-    const initialState = {
-      searchText: { searchField: "" },
-      moviesList: { error: "" },
+    mockProps = {
+      searchField: "",
+      error: "",
+      clearSearchField: jest.fn(),
+      clearMovies: jest.fn(),
+      handleSubmit: jest.fn(),
+      searchChange: jest.fn(),
     };
-
-    store = mockStore(initialState);
-    wrapper = shallow(<SearchBox store={store} />).dive();
+    wrapper = shallow(<SearchBox {...mockProps} />);
   });
-  it("should render the searchBox component", () => {
-    // const initialState = {
-    //   searchText: { searchField: "" },
-    //   moviesList: { error: "" },
-    // };
-    // const store = mockStore(initialState);
-    // const wrapper = mount(
-    //   <Provider store={store}>
-    //     <SearchBox />
-    //   </Provider>
-    // );
+
+  it("should render the SearchBox Component ", () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("should  show the initial searchField value", () => {
-    // test that the state values were correctly passed as props
-    expect(wrapper.props().searchField).toEqual("");
-    // const dispatch = jest.fn();
-    // store.dispatch = dispatch;
+  it("should handle the mock method with the button click ", () => {
+    wrapper.find("button").simulate("click");
+    expect(wrapper.length).toEqual(1);
   });
+  it("should handle the mock method with the span if searchField greater than zero ", () => {
+    const mockItems = {
+      searchField: "hello",
+      clearSearchField: jest.fn(),
+      clearMovies: jest.fn(),
+    };
 
-  it("should change the initial searchField value when ever the user types", () => {
-    const dispatch = jest.fn();
-    store.dispatch = dispatch;
-    console.log(dispatch);
-
-    expect(dispatch).toEqual("hai");
+    const wrapper1 = shallow(<SearchBox {...mockItems} />);
+    wrapper1.find("span").simulate("click");
+    expect(wrapper1.length).toEqual(1);
   });
 });
+
+// describe("searchBox", () => {
+//   let wrapper, store;
+//   beforeEach(() => {
+//     const initialState = {
+//       searchText: { searchField: "" },
+//       moviesList: { error: "" },
+//     };
+
+//     store = mockStore(initialState);
+//     wrapper = shallow(<SearchBox store={store} />).dive();
+//   });
+//   it("should render the searchBox component", () => {
+//     // const initialState = {
+//     //   searchText: { searchField: "" },
+//     //   moviesList: { error: "" },
+//     // };
+//     // const store = mockStore(initialState);
+//     // const wrapper = mount(
+//     //   <Provider store={store}>
+//     //     <SearchBox />
+//     //   </Provider>
+//     // );
+//     expect(wrapper).toMatchSnapshot();
+//   });
+
+//   it("should  show the initial searchField value", () => {
+
+//     expect(wrapper.props().searchField).toEqual("");
+
+//   });
