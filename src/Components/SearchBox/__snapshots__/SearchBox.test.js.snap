@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`searchBox should render the searchBox component 1`] = `ShallowWrapper {}`;
+exports[`SearchBox component should render the SearchBox Component  1`] = `ShallowWrapper {}`;
+
+exports[`searchBox should render the searchBox component 1`] = `undefined`;
