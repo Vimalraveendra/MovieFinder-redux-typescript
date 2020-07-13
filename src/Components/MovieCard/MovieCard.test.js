@@ -7,3 +7,9 @@ it("should render the MovieCard component", () => {
   let wrapper = shallow(<MovieCard Title={mockTitle} />);
   expect(wrapper).toMatchSnapshot();
 });
+
+it("should render the MovieCard component with props", () => {
+  const mockTitle = "hello";
+  let wrapper = shallow(<MovieCard Title={mockTitle} />);
+  expect(wrapper.contains(mockTitle)).toEqual(true);
+});
