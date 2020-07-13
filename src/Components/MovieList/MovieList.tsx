@@ -1,12 +1,19 @@
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 import styles from "./MovieList.module.css";
+import { IMovies } from "../../Redux/FilmCard/FilmCard.types";
 
-// interface IMoviesListProps {}
-// //here we are doing aggregation of all the props types.
-// type propsList = IMoviesListProps & LinkStateProps;
+interface IMoviesListProps {
+  movies: Array<IMovies>;
+  error?: string | undefined;
+  searchField: string;
+}
 
-const MovieList = ({ movies, error, searchField }) => {
+const MovieList: React.FC<IMoviesListProps> = ({
+  movies,
+  error,
+  searchField,
+}) => {
   return error || searchField.length === 0 ? (
     <MovieCard error={error} />
   ) : (
