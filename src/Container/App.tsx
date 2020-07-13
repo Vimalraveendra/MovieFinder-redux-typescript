@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./App.module.css";
 import SearchBoxPage from "./SearchBoxPage";
-import MovieList from "../Components/MovieList/MovieList";
+import MovieListPage from "./MovieListPage";
 
 interface IAppProps {}
 interface IAppState {}
@@ -13,7 +13,7 @@ class App extends React.Component<IAppProps, IAppState> {
       <div className={styles.App}>
         <h1>Movie finder</h1>
         <SearchBoxPage />
-        <MovieList />
+        <MovieListPage />
       </div>
     );
   }
