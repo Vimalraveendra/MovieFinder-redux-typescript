@@ -1,7 +1,7 @@
 import axios from "axios";
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-export const fetchFilmData = async (searchField) => {
+export const fetchFilmData = async (searchField: string) => {
   try {
     const {
       data: { Search },
