@@ -7,7 +7,7 @@ import { fetchFilmDataSuccess, fetchFilmDataFailure } from "./FilmCard.actions";
 import { fetchFilmData } from "../../API/API";
 
 //now here we are going to specify the type of the parameter & the return action type
-export function* fetchFilmDataAsync({ payload }: fetchFilmDataStartAction) {
+export function* fetchFilmDataAsync({ payload }: fetchFilmDataStartAction):any {
   // yield keyword is similar to await keyword it intercepts execution.
   try {
     // if (payload.length > 0) {
