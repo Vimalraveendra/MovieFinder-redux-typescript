@@ -1,5 +1,5 @@
 import { REQUEST_FILM_DATA_SUCCESS } from "./FilmCard.types";
-import * as API from "../../API/API";
+import * as API from "../../API/Api";
 
 import rootReducer from "../rootReducer";
 import * as actions from "./FilmCard.sagas";

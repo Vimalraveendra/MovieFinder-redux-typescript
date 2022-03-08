@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { AppState } from "../../Redux/store";
+import { AppState } from "../store";
 
 const selectMoviesList = (state: AppState) => state.moviesList;
 

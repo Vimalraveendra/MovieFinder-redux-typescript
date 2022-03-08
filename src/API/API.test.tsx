@@ -1,4 +1,4 @@
-import * as API from "./API";
+import * as API from "./Api";
 import axios from "axios";
 
 describe("Get FilmData", () => {

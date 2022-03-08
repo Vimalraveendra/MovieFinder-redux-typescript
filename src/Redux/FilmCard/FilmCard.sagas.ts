@@ -1,13 +1,14 @@
+
 import { takeLatest, call, put } from "redux-saga/effects";
 import {
   fetchFilmDataStartAction,
   REQUEST_FILM_DATA_START,
 } from "./FilmCard.types";
 import { fetchFilmDataSuccess, fetchFilmDataFailure } from "./FilmCard.actions";
-import { fetchFilmData } from "../../API/API";
+import { fetchFilmData } from "../../API/Api";
 
 //now here we are going to specify the type of the parameter & the return action type
-export function* fetchFilmDataAsync({ payload }: fetchFilmDataStartAction) {
+export function* fetchFilmDataAsync({ payload }: fetchFilmDataStartAction):any {
   // yield keyword is similar to await keyword it intercepts execution.
   try {
     // if (payload.length > 0) {
@@ -19,7 +20,7 @@ export function* fetchFilmDataAsync({ payload }: fetchFilmDataStartAction) {
     // } else {
     //   throw new Error("Sorry!!!, Please enter a film name");
     // }
-  } catch (error) {
+  } catch (error:any) {
     yield put(fetchFilmDataFailure(error));
   }
 }
