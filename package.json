@@ -16,7 +16,7 @@
     "@types/redux-logger": "^3.0.8",
     "@types/redux-saga": "^0.10.5",
     "@types/reselect": "^2.2.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "lodash": "^4.17.21",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
