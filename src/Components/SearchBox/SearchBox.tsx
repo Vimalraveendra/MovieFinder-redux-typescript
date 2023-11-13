@@ -22,10 +22,11 @@ const SearchBox: React.FC<ISearchBox> = ({
 }) => {
   return (
     <div className={styles.container}>
+      <div className={styles.searchContainer}>
       <input
         className={styles.input}
         type="search"
-        placeholder="search movies here"
+        placeholder="search movies..."
         onChange={searchChange}
         value={searchField}
       />
@@ -49,6 +50,7 @@ const SearchBox: React.FC<ISearchBox> = ({
           &#10060;
         </span>
       ) : null}
+      </div>
     </div>
   );
 };

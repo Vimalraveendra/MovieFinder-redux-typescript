@@ -12,8 +12,8 @@ export interface IProps {
 const MovieCard: React.FC<IProps> = ({ Title, Poster, Year, error }) => {
   return Title ? (
     <div className={styles.moviecard}>
-      <img src={Poster} alt="movie-poster" width="250" height="350" />
-      <div>
+      <img src={Poster} alt="movie-poster" className={styles.image} />
+      <div className={styles.title}>
         <h2>{Title}</h2>
         <p>Year:{Year}</p>
       </div>

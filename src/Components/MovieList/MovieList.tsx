@@ -14,8 +14,8 @@ const MovieList: React.FC<IMoviesListProps> = ({
   error,
   searchField,
 }) => {
-  return error || searchField.length === 0 ? (
-    <MovieCard error={error} />
+  return (error ||movies===undefined) ? (
+    <MovieCard error={error?error:"Please enter a valid movie name"} />
   ) : (
     <div className={styles.movielist}>
       {movies &&

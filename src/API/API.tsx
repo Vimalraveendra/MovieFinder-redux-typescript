@@ -10,7 +10,6 @@ export const fetchFilmData = async (searchField: string) => {
     } = await axios.get(
       `http://www.omdbapi.com/?s=${searchField}&apikey=${API_KEY}`
     );
-
     return Search;
   } catch (error) {
     return error;
