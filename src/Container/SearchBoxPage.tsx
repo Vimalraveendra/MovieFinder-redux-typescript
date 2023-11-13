@@ -12,6 +12,7 @@ import {
 
 import { createStructuredSelector } from "reselect";
 import { selectError } from "../Redux/FilmCard/FilmCard.selectors";
+
 import { selectSearchField } from "../Redux/SearchBox/SearchBox.selectors";
 
 import { SearchBoxActionTypes } from "../Redux/SearchBox/SearchBox.types";

@@ -6,7 +6,7 @@ import { createStructuredSelector } from "reselect";
 import {
   selectMovies,
   selectError,
-} from "../Redux/FilmCard/FilmCard.selectors";
+} from "../Redux/FilmCard/FilmCard.selectors"
 import { selectSearchField } from "../Redux/SearchBox/SearchBox.selectors";
 import { IMovies } from "../Redux/FilmCard/FilmCard.types";
 
